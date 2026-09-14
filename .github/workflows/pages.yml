@@ -21,11 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Verify website files are present
-        run: |
-          test -s dist/index.html
-          test -s dist/theme.css
-          test -s dist/gallery.js
-          test -s dist/assets/switzerland/photo-5.webp
+        run: python3 scripts/check-assets.py
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
